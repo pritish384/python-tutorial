@@ -3,9 +3,7 @@ class Animal:
         print("Animal sound")
 
 class Dog(Animal):
-    def bark(self):
-        print("Bark")
+    pass
 
 d = Dog()
 d.speak()
-d.bark()

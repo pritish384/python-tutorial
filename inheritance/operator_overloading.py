@@ -1,22 +1,30 @@
-class Point:
-    def __init__(self, x):
-        self.x = x
+class ComplexNumber:
+    def __init__(self,real,img):
+        self.real = real
+        self.img = img
 
-    def __add__(self, other):   # +
-        return Point(self.x + other.x)
+    def display(self):
+        print(f"{self.real} + {self.img}i")
 
-    def __sub__(self, other):   # -
-        return Point(self.x - other.x)
+    def __add__(self,other):
+        return (f"{self.real + other.real} + {self.img + other.img}i")
+    
+    def __sub__(self,other):
+        return (f"{self.real - other.real} + {self.img - other.img}i")
+    
+    def __mul__(self, other):
+        new_real = self.real * other.real - self.img * other.img
+        new_imaginary = self.real * other.img + other.real * self.img
+        return f"{new_real} + {new_imaginary}i"
+            
+        
 
-    def __mul__(self, other):   # *
-        return Point(self.x * other.x)
 
-    def __str__(self):
-        return str(self.x)
+c1 = ComplexNumber(2,3)
+c2 = ComplexNumber(5,8)
+c1.display()
+c2.display()
 
-p1 = Point(10)
-p2 = Point(5)
-
-print(p1 + p2)   # 15
-print(p1 - p2)   # 5
-print(p1 * p2)   # 50
+print(c1+c2)
+print(c1-c2)
+print(c1*c2)
